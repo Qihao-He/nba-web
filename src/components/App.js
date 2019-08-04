@@ -7,7 +7,6 @@ function App() {
         <div className="App">
             <TopNavBar/>
             <Main/>
-            this is app
         </div>
     );
 }
