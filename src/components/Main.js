@@ -26,7 +26,7 @@ export class Main extends React.Component {
         return (
             <div className="main">
                 <SearchBar />
-                <div classname="player">
+                <div className="player">
                     <Profile playerInfo={this.state.playerInfo} />
                     <DataViewContainer playerId={this.state.playerId} />
                 </div>
