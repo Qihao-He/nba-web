@@ -35,7 +35,7 @@ class SearchBar extends Component {
         ));
 
         return (
-            <div className="global-search-wrapper" style={{ width: 300 }}>
+            <div className="search-bar" style={{ width: 300 }}>
                 <AutoComplete
                     className="global-search"
                     size="large"
