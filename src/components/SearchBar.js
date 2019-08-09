@@ -25,6 +25,10 @@ class SearchBar extends Component {
         })
     };
 
+    onSelect = (playerName) => {
+        this.props.handleSelectPlayer(playerName);
+    }
+
     render() {
         const { dataSource } = this.state;
         const options = dataSource.map((player) => (
@@ -35,18 +39,17 @@ class SearchBar extends Component {
         ));
 
         return (
-            <div className="search-bar" style={{ width: 300 }}>
-                <AutoComplete
-                    className="global-search"
-                    size="large"
-                    dataSource={options}
-                    onSearch={this.handleSearch}
-                    placeholder="input here"
-                    optionLabelProp="text"
-                >
-                    <Input suffix={<Icon type="search" className="certain-category-icon" />} />
-                </AutoComplete>
-            </div>
+            <AutoComplete
+                className="search-bar"
+                size="large"
+                dataSource={options}
+                onSelect={this.onSelect}
+                onSearch={this.handleSearch}
+                placeholder="Search NBA Player"
+                optionLabelProp="value"
+            >
+                <Input suffix={<Icon type="search" className="certain-category-icon" />} />
+            </AutoComplete>
         );
     }
 }
