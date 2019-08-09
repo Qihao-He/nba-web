@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { AutoComplete, Input, Icon } from 'antd';
 import nba from 'nba';
-import { PROFILE_PIC_URL_PREFIX } from '../constants';
+import { PROFILE_PIC_URL_PREFIX } from '../Constants';
 
 const Option = AutoComplete.Option;
 
@@ -16,13 +16,13 @@ class SearchBar extends Component {
         const players = nba.searchPlayers(value);
         console.log(players);
 
-        // this.setState({
-        //     dataSource: !value ?
-        //         [] : nba.searchPlayers(value).map(player => ({
-        //             fullName: player.fullName,
-        //             playerId: player.playerId,
-        //         }))
-        // })
+        this.setState({
+            dataSource: !value ?
+                [] : nba.searchPlayers(value).map(player => ({
+                    fullName: player.fullName,
+                    playerId: player.playerId,
+                }))
+        })
     };
 
     render() {
@@ -39,7 +39,7 @@ class SearchBar extends Component {
                 <AutoComplete
                     className="global-search"
                     size="large"
-                    dataSource={dataSource}
+                    dataSource={options}
                     onSearch={this.handleSearch}
                     placeholder="input here"
                     optionLabelProp="text"
